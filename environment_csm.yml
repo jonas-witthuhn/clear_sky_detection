@@ -1,0 +1,15 @@
+name: CSDcsm
+channels:
+  - r
+  - conda-forge
+  - defaults
+dependencies:
+  - scipy
+  - rpy2
+  - pandas
+  - matplotlib
+  - xarray
+  - numpy
+  - netcdf4
+prefix: /home/walther/.conda/envs/CSDcsm
+

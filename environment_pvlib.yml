@@ -1,0 +1,14 @@
+name: CSDpvlib
+channels:
+  - r
+  - conda-forge
+  - defaults
+dependencies:
+  - pandas
+  - matplotlib
+  - pvlib-python
+  - scipy
+  - numpy
+  - xarray
+prefix: /home/walther/.conda/envs/CSDpvlib
+
