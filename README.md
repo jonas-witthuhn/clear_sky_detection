@@ -15,6 +15,7 @@ algorithm optimizes these first guess values.
 # Requirements
  - numpy
  - scipy
+ 
  for examples:
  - pandas
  - matplotlib
