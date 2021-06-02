@@ -23,3 +23,8 @@ which may require additional data (e.g. albedo, aerosol, ozone...). But there ar
  - netcdf4 (example_csm)
  - ` pip install git+https://github.com/jonas-witthuhn/clear-sky-models.git#egg=clear_sky_models `  (example_csm)
  see conda environmets environmet_pvlib.yml and environmet_csm.yml
+ 
+ # Install
+ 
+ ` pip install git+https://github.com/jonas-witthuhn/clear_sky_detection.git#egg=clear_sky_detection
+ `
