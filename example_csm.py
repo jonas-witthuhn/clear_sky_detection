@@ -27,7 +27,7 @@ import xarray as xr
 import matplotlib.pyplot as plt
 
 
-import csd_bright_sun_2020 as bscsd
+import clear_sky_detection.csd_bright_sun_2020 as bscsd
 csds = bscsd.bright_sun_csds # sun disk is free of clouds
 csdc = bscsd.bright_sun_csdc # entire sky is assumed cloud free
 

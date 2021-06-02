@@ -10,5 +10,4 @@ dependencies:
   - scipy
   - numpy
   - xarray
-prefix: /home/walther/.conda/envs/CSDpvlib
 

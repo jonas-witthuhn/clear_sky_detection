@@ -11,5 +11,4 @@ dependencies:
   - xarray
   - numpy
   - netcdf4
-prefix: /home/walther/.conda/envs/CSDcsm
 
