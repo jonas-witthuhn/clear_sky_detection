@@ -38,9 +38,9 @@ def get_clearsky_pvlib(RAD):
     from pvlib import clearsky
     from pvlib.location import Location
     #setup location
-    loc = Location(RAD.latitude,
-                   RAD.longitude,
-                   'UTC',700)
+    loc = Location(RAD.latitude.values,
+                   RAD.longitude.values,
+                   'UTC',700)#,RAD.altitude.values
     # resample to 1 min resolution (required for clear sky detection)
     # also skip if sun is below horizon
     rRAD = RAD.where(RAD.szen<90,drop=True).resample(time='1MIN').mean()
