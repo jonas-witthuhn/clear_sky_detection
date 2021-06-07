@@ -66,7 +66,7 @@ def get_clearsky_csm(RAD):
 
 
 
-pf = "/vols/satellite/home/jonas/data/mordor/2018_2019_metpvnet/ncdata"
+pf = "example_data/"
 fname = os.path.join(pf,"{date:%Y/%m/%Y-%m-%d}_{table}.nc")
 
 date = dt.date(2019,7,16)
