@@ -33,8 +33,9 @@ csdc = bscsd.bright_sun_csdc # entire sky is assumed cloud free
 
 ################################################################################
 ### clear sky model ############################################################
-# git clone https://gitea.tropos.de/walther/clear_sky_models
 # conda env create -f environment_csm.yml
+# conda activate CSDcsm
+# pip install git+https://github.com/jonas-witthuhn/clear-sky-models.git#egg=clear_sky_models
 
 def get_clearsky_csm(RAD):
     import clear_sky_models.models as csm
