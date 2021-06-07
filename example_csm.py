@@ -45,16 +45,26 @@ def get_clearsky_csm(RAD):
     rRAD = RAD.where(RAD.szen<90,drop=True).resample(time='1MIN').mean()
 
     # calculate clear sky irradiance
-    times = pd.to_datetime(rRAD.time.values)
-    dni,dhi,ghi = csm.model_06_ashrae(date=np.datetime64(date),sza=rRAD.szen)
+    udays = np.unique(rRAD.time.astype("datetime64[D]"))
+    ghi = np.array([])
+    dhi = np.array([])
+    for day in udays:
+        daystr = pd.to_datetime(day).strftime("%Y-%m-%d")
+        _,tdhi,tghi = csm.model_06_ashrae(date=day,sza=rRAD.sel(time=daystr).szen)
+        ghi = np.concatenate((ghi,tghi),axis=0)
+        dhi = np.concatenate((dhi,tdhi),axis=0)
+    
+    RADcs = xr.Dataset({'ghi':('time',ghi),
+                        'dhi':('time',dhi)},
+                       coords={'time':('time',rRAD.time)})
     
     # detect clear sky
     CSD = csdc(rRAD.time,
                rRAD.szen,
                rRAD.GHI,
-               ghi,
+               RADcs.ghi,
                rRAD.DHI,
-               dhi,
+               RADcs.dhi,
                RAD.longitude)
     csd = xr.DataArray(CSD[1].data*~CSD[1].mask,coords={'time':rRAD.time},dims=['time'])
     
